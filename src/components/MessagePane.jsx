@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import { ComposeForm } from "./ComposeForm";
 
 import DEFAULT_CHAT_LOG from "../data/chat_log.json";
@@ -5,7 +7,23 @@ import DEFAULT_CHAT_LOG from "../data/chat_log.json";
 export function MessagePane(props) {
     const { currentChannel } = props;
 
-    const messageObjArray = DEFAULT_CHAT_LOG.filter((chatObj) => chatObj.channel === currentChannel).sort((m1, m2) => m1.timestamp - m2.timestamp);
+    const [messageArray, setMessageArray] = useState(DEFAULT_CHAT_LOG);
+
+    const addMessage = (userId, userName, userImg, msgText) => {
+        const newMessageObj = {
+            "userId": userId,
+            "userName": userName,
+            "text": msgText,
+            "userImg": userImg,
+            "timeStamp": Date.now(),
+            "channel": currentChannel
+        }
+
+        const updateMessageArray = [...messageArray, newMessageObj]
+        setMessageArray(updateMessageArray);
+    }
+
+    const messageObjArray = messageArray.filter((chatObj) => chatObj.channel === currentChannel).sort((m1, m2) => m1.timestamp - m2.timestamp);
 
     const messageElemArray = messageObjArray.map((chatObj) => {
         const elem = <MessageItem key={chatObj.timestamp} messageData={chatObj} />
@@ -15,7 +33,7 @@ export function MessagePane(props) {
     return (
         <div className="scrollable-pane mt-2">
             {messageElemArray}
-            <ComposeForm />
+            <ComposeForm addMessageFunction={addMessage} />
         </div>
     )
 }
@@ -27,9 +45,12 @@ function MessageItem(props) {
         <div className="message m-2">
             <div className="d-flex">
                 <img className="me-1" src={userImg}/>
-                <p><strong>{userName}</strong></p>
+                <div>
+                    <p className="mb-0"><strong>{userName}</strong></p>
+                    <p>{text}</p>                    
+                </div>
+
             </div>
-            <p>{text}</p>
         </div>
     )
 }
