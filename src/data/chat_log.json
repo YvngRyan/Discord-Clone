@@ -1,0 +1,72 @@
+[
+  {
+    "userName": "Panda",
+    "userImg": "/img/panda.jpeg",
+    "text": "Hello world",
+    "timestamp": 1320160400000,
+    "channel": "general"
+  },
+  {
+    "userName": "Tiger",
+    "userImg": "/img/tiger.jpg",
+    "text": "Hello Panda",
+    "timestamp": 1320160760000,
+    "channel": "general"
+  },
+  {
+    "userName": "Elephant",
+    "userImg": "/img/elephant.avif",
+    "text": "Hello everybody",
+    "timestamp": 1320161000000,
+    "channel": "general"
+  },
+  {
+    "userName": "Zebra",
+    "userImg": "/img/panda.jpeg",
+    "text": "Hi big elephant",
+    "timestamp": 1320161200000,
+    "channel": "general"
+  },
+  {
+    "userName": "Tiger",
+    "userImg": "/img/tiger.jpg",
+    "text": "Anyone up for a game?",
+    "timestamp": 1320161400000,
+    "channel": "social"
+  },
+  {
+    "userName": "Panda",
+    "userImg": "/img/panda.jpeg",
+    "text": "Sure, what game?",
+    "timestamp": 1320161600000,
+    "channel": "social"
+  },
+  {
+    "userName": "Elephant",
+    "userImg": "/img/elephant.avif",
+    "text": "Let's play trivia!",
+    "timestamp": 1320161800000,
+    "channel": "social"
+  },
+  {
+    "userName": "Zebra",
+    "userImg": "/img/panda.jpeg",
+    "text": "I love trivia nights!",
+    "timestamp": 1320162000000,
+    "channel": "social"
+  },
+  {
+    "userName": "Tiger",
+    "userImg": "/img/tiger.jpg",
+    "text": "Random thought: bamboo is underrated.",
+    "timestamp": 1320162200000,
+    "channel": "random"
+  },
+  {
+    "userName": "Panda",
+    "userImg": "/img/panda.jpeg",
+    "text": "Not for me 😋",
+    "timestamp": 1320162400000,
+    "channel": "random"
+  }
+]
