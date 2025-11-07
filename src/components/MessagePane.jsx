@@ -1,18 +1,20 @@
-import DEFAULT_CHAT_LOG from "../data/chat_log.json";
-
 import { ComposeForm } from "./ComposeForm";
 
+import DEFAULT_CHAT_LOG from "../data/chat_log.json";
+
 export function MessagePane(props) {
-    const messageItems = DEFAULT_CHAT_LOG.map(messageItem => {
-        const transformed = (
-            <MessageItem messageData={messageItem} key={messageItem.timestamp}/>
-        )
-        return transformed;
-    })
+    const { currentChannel } = props;
+
+    const messageObjArray = DEFAULT_CHAT_LOG.filter((chatObj) => chatObj.channel === currentChannel).sort((m1, m2) => m1.timestamp - m2.timestamp);
+
+    const messageElemArray = messageObjArray.map((chatObj) => {
+        const elem = <MessageItem key={chatObj.timestamp} messageData={chatObj} />
+        return elem;
+    });
 
     return (
-        <div>
-            {messageItems}
+        <div className="scrollable-pane mt-2">
+            {messageElemArray}
             <ComposeForm />
         </div>
     )
