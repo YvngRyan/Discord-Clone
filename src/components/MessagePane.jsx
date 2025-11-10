@@ -5,7 +5,7 @@ import { ComposeForm } from "./ComposeForm";
 import DEFAULT_CHAT_LOG from "../data/chat_log.json";
 
 export function MessagePane(props) {
-    const { currentChannel } = props;
+    const { currentChannel, currentUser } = props;
 
     const [messageArray, setMessageArray] = useState(DEFAULT_CHAT_LOG);
 
@@ -33,8 +33,8 @@ export function MessagePane(props) {
     return (
         <div className="scrollable-pane mt-2">
             {messageElemArray}
-            <ComposeForm addMessageFunction={addMessage} />
-        </div>
+            <ComposeForm currentUser={currentUser} addMessageFunction={addMessage} />
+        </div> 
     )
 }
 
@@ -44,7 +44,7 @@ function MessageItem(props) {
     return (
         <div className="message m-2">
             <div className="d-flex">
-                <img className="me-1" src={userImg}/>
+                <img className="me-1 messageImg" src={userImg}/>
                 <div>
                     <p className="mb-0"><strong>{userName}</strong></p>
                     <p>{text}</p>                    
